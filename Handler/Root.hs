@@ -17,7 +17,7 @@ blaze f status headers =
   let notEncoding ("Content-Encoding", _) = False
       notEncoding _ = True
       headers' = filter notEncoding headers
-      iter = f status headers
+      iter = f status headers'
   in  joinI $ EL.map fromByteString $$ iter
 
 fetch :: Request IO
